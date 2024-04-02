@@ -56,7 +56,7 @@ The setup instructions assume that you have python-venv installed. If not, you c
 ### Project Dependencies:
 It is assumed that the project dependencies are listed in the requirements.txt file. If not, you may need to manually install the required packages based on the project documentation or source code.
 
-## The Problem I have Solved:
+## How much of the problem you were able to solve :
 - ** I had tried to solve all the problems. **
 
 ## Problems faced with incomplete parts (if any) 
