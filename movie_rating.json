@@ -1,0 +1,233 @@
+{
+    "info": {
+        "_postman_id": "f445c153-ec27-46d8-a5bc-491860e2d7f5",
+        "name": "move rating ",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "registration",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/user-registration/",
+                    "path": [
+                        "api",
+                        "auth",
+                        "user-registration"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "X-CSRFToken",
+                        "value": "jfCuWDwNzPSkuIzIYz7EHn4BbhgzGeoS"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"Macy Doe\",\n  \"phone\":\"44444444444\",\n  \"email\":\"macy_doe@gmail.com\",\n  \"password\":\"pass4\",\n}"
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/user-login/",
+                    "path": [
+                        "api",
+                        "auth",
+                        "user-login"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "X-CSRFToken",
+                        "value": "2ZjDWh106ZAh6THmDfENE4xG6Eqh3yDl"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\":\"macy_doe@gmail.com\",\n  \"password\":\"pass4\"\n}"
+                }
+            }
+        },
+        {
+            "name": "logout",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/user-logout/",
+                    "path": [
+                        "api",
+                        "auth",
+                        "user-logout"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "X-CSRFToken",
+                        "value": "2ZjDWh106ZAh6THmDfENE4xG6Eqh3yDl"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "movie add",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8000/api/movie/",
+                    "path": [
+                        "api",
+                        "movie"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "X-CSRFToken",
+                        "value": "enhly2AwHS8WCtuMlOsMdirUMtJcX7hb"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"Avengers Endgame\",\n  \"genre\":\"Action\",\n  \"rating\":\"PG\",\n  \"release_date\":\"2019-04\"\n}"
+                }
+            }
+        },
+        {
+            "name": "movie list",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/api/movie/",
+                    "path": [
+                        "api",
+                        "movie"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                }
+            }
+        },
+        {
+            "name": "rating add",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8000/api/rating/",
+                    "path": [
+                        "api",
+                        "rating"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "X-CSRFToken",
+                        "value": "gBHzWAdUhjBQ0k8y4D9Dvb7ZsKD0mQaB"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"rating\":4.5,\n  \"movie_id\":2\n}"
+                }
+            }
+        },
+        {
+            "name": "get specific movie with rating average",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/api/movie/1/",
+                    "path": [
+                        "api",
+                        "movie",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                }
+            }
+        },
+        {
+            "name": "csrf token ",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/csrf-token/",
+                    "path": [
+                        "api",
+                        "auth",
+                        "csrf-token"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000"
+                }
+            }
+        }
+    ]
+}
