@@ -6,7 +6,7 @@
 
 ### 1. ** Clone the Repository: **
 First, clone the repository to your local machine using the following command:
-- command line: `git clone <repository_link>`
+- command line: `git clone https://github.com/RashadGhzi/Movie-Rating.git`
 Replace <repository_link> with the actual link to the GitHub repository.
 
 ### 2. ** Navigate to the Project Directory: **
