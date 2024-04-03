@@ -36,11 +36,14 @@ class BaseCommonViewSet(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         return Response({'detail': 'This method is not allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class CSRFTokenViewSet(BaseCommonViewSet):
     permission_classes = [AllowAny]
+
     def list(self, request):
         return Response({'detail': 'CSRF cookie set'}, status=status.HTTP_200_OK)
+
 
 @method_decorator(csrf_protect, name='dispatch')
 class UserRegistrationViewSet(BaseCommonViewSet):
@@ -56,6 +59,7 @@ class UserRegistrationViewSet(BaseCommonViewSet):
             return Response('New user has been created', status=status.HTTP_201_CREATED)
         except ValidationError as validationError:
             return Response(validationError.detail, status=status.HTTP_400_BAD_REQUEST)
+
 
 @method_decorator(csrf_protect, name='dispatch')
 class UserLoginViewSet(BaseCommonViewSet):
@@ -73,6 +77,7 @@ class UserLoginViewSet(BaseCommonViewSet):
             if user:
                 login(request, user)
                 return Response('User has been logged in', status=status.HTTP_200_OK)
+            return Response('Invalid credentials', status=status.HTTP_401_UNAUTHORIZED)
         except ValidationError as validationError:
             return Response(validationError.detail, status=status.HTTP_400_BAD_REQUEST)
 
@@ -80,7 +85,9 @@ class UserLoginViewSet(BaseCommonViewSet):
 class UserLogoutViewSet(BaseCommonViewSet):
     queryset = User.objects.all()
     serializer_class = LoginSerializer
+    permission_classes = [AllowAny]
 
-    def create(self, request):
+    # user logout request here
+    def list(self, request, *args, **kwargs):
         logout(request)
         return Response('User has been logged out', status=status.HTTP_200_OK)

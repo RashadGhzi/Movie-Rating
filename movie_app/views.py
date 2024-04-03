@@ -58,3 +58,8 @@ class RatingViewSet(BaseCommonViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except ValidationError as validationError:
             return Response(validationError.detail, status=status.HTTP_400_BAD_REQUEST)
+        
+    def list(self, request, *args, **kwargs):
+        ratings = self.filter_queryset(self.get_queryset())
+        serializer = self.get_serializer(ratings, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
